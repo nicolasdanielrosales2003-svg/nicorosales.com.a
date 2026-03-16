@@ -1,15 +1,37 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>mi primera pagina no lo puedo creer</title>
+    <title>Pedidos Panadería</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>nicolas rosales</h1>
-    <p>descubriste mi pagina oficial, jaja porque tenia una 🥱.</p>
-    <img src="img/logo.png" alt="Mi logo" width="200">
-    <script src="js/script.js"></script>
+    <h1>Panadería Nicolás</h1>
+    <p>Hacé tu pedido online:</p>
+
+    <!-- Formulario de pedidos -->
+    <form action="#" method="post">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="telefono">Teléfono:</label><br>
+        <input type="tel" id="telefono" name="telefono" required><br><br>
+
+        <label for="producto">Producto:</label><br>
+        <select id="producto" name="producto" required>
+            <option value="pan">Pan</option>
+            <option value="facturas">Facturas</option>
+            <option value="torta">Torta</option>
+            <option value="sandwich">Sandwich de miga</option>
+        </select><br><br>
+
+        <label for="cantidad">Cantidad:</label><br>
+        <input type="number" id="cantidad" name="cantidad" min="1" required><br><br>
+
+        <label for="comentarios">Comentarios:</label><br>
+        <textarea id="comentarios" name="comentarios" rows="4"></textarea><br><br>
+
+        <button type="submit">Enviar pedido</button>
+    </form>
 </body>
 </html>
