@@ -14,7 +14,8 @@
     <label>Contraseña:</label><br>
     <input type="password" name="password" required><br><br>
 
-    <button type="submit">Ingresar</button>
+    <!-- Botón de login -->
+    <button type="submit">Login</button>
   </form>
 
   <p id="loginMensaje"></p>
@@ -28,7 +29,7 @@
       const usuario = loginForm.usuario.value;
       const password = loginForm.password.value;
 
-      // Ejemplo simple: credenciales fijas
+      // Credenciales simples
       if (usuario === "empleado" && password === "1234") {
         window.location.href = "pedidos.html";
       } else {
