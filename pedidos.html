@@ -4,22 +4,90 @@
   <meta charset="UTF-8">
   <title>Pedidos Recibidos</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .tabla-container {
+      width: 90%;
+      max-height: 400px; /* altura máxima antes de scroll */
+      overflow-y: auto;
+      margin: 20px auto;
+      border: 1px solid #d2691e;
+      border-radius: 8px;
+      background: #fff3cd;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #d2691e;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #d2691e;
+      color: white;
+      position: sticky;
+      top: 0; /* cabecera fija al hacer scroll */
+    }
+    button.eliminar {
+      background-color: crimson;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button.eliminar:hover {
+      background-color: darkred;
+    }
+  </style>
 </head>
 <body>
-  <h1>Pedidos Recibidos</h1>
-  <div id="listaPedidos"></div>
+  <h1 style="text-align:center;">Pedidos Recibidos</h1>
+  <div class="tabla-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Teléfono</th>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Comentarios</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="tablaPedidos"></tbody>
+    </table>
+  </div>
 
   <script>
-    const lista = document.getElementById("listaPedidos");
+    const tabla = document.getElementById("tablaPedidos");
     let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
 
-    if (pedidos.length === 0) {
-      lista.innerText = "No hay pedidos registrados.";
-    } else {
-      lista.innerHTML = pedidos.map(p => `
-        <p><strong>${p.nombre}</strong> pidió ${p.cantidad} ${p.producto} - Tel: ${p.telefono} <br> Comentarios: ${p.comentarios}</p>
-      `).join("");
+    function renderPedidos() {
+      if (pedidos.length === 0) {
+        tabla.innerHTML = `<tr><td colspan="6">No hay pedidos registrados.</td></tr>`;
+      } else {
+        tabla.innerHTML = pedidos.map((p, i) => `
+          <tr>
+            <td>${p.nombre}</td>
+            <td>${p.telefono}</td>
+            <td>${p.producto}</td>
+            <td>${p.cantidad}</td>
+            <td>${p.comentarios}</td>
+            <td><button class="eliminar" onclick="eliminarPedido(${i})">Eliminar</button></td>
+          </tr>
+        `).join("");
+      }
     }
+
+    function eliminarPedido(index) {
+      pedidos.splice(index, 1);
+      localStorage.setItem("pedidos", JSON.stringify(pedidos));
+      renderPedidos();
+    }
+
+    renderPedidos();
   </script>
 </body>
 </html>
