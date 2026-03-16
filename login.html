@@ -6,19 +6,18 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Acceso Trabajadores</h1>
-  <form id="loginForm">
+  <!-- Botón fijo arriba a la izquierda -->
+  <form id="loginForm" style="position:fixed; top:20px; left:20px; background:#fff3cd; padding:15px; border-radius:8px;">
     <label>Usuario:</label><br>
     <input type="text" name="usuario" required><br><br>
 
     <label>Contraseña:</label><br>
     <input type="password" name="password" required><br><br>
 
-    <!-- Botón de login -->
     <button type="submit">Login</button>
   </form>
 
-  <p id="loginMensaje"></p>
+  <p id="loginMensaje" style="margin-top:120px; text-align:center;"></p>
 
   <script>
     const loginForm = document.getElementById("loginForm");
@@ -29,7 +28,6 @@
       const usuario = loginForm.usuario.value;
       const password = loginForm.password.value;
 
-      // Credenciales simples
       if (usuario === "empleado" && password === "1234") {
         window.location.href = "pedidos.html";
       } else {
@@ -37,5 +35,7 @@
       }
     });
   </script>
+</body>
+</html>
 </body>
 </html>
