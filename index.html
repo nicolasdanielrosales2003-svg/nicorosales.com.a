@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Pedidos Panadería</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>Pedidos Panadería</title>
 </head>
 <body>
-    <h1>Panadería Nicolás</h1>
-    <p>Hacé tu pedido online:</p>
+  <h1>Panadería Nicolás</h1>
+  <form id="pedidoForm">
+    <label>Nombre:</label><br>
+    <input type="text" name="nombre" required><br><br>
 
-    <!-- Formulario de pedidos -->
-    <form action="#" method="post">
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre" required><br><br>
+    <label>Teléfono:</label><br>
+    <input type="tel" name="telefono" required><br><br>
 
-        <label for="telefono">Teléfono:</label><br>
-        <input type="tel" id="telefono" name="telefono" required><br><br>
+    <label>Producto:</label><br>
+    <select name="producto" required>
+      <option value="pan">Pan</option>
+      <option value="facturas">Facturas</option>
+      <option value="torta">Torta</option>
+    </select><br><br>
 
-        <label for="producto">Producto:</label><br>
-        <select id="producto" name="producto" required>
-            <option value="pan">Pan</option>
-            <option value="facturas">Facturas</option>
-            <option value="torta">Torta</option>
-            <option value="sandwich">Sandwich de miga</option>
-        </select><br><br>
+    <label>Cantidad:</label><br>
+    <input type="number" name="cantidad" min="1" required><br><br>
 
-        <label for="cantidad">Cantidad:</label><br>
-        <input type="number" id="cantidad" name="cantidad" min="1" required><br><br>
+    <label>Comentarios:</label><br>
+    <textarea name="comentarios"></textarea><br><br>
 
-        <label for="comentarios">Comentarios:</label><br>
-        <textarea id="comentarios" name="comentarios" rows="4"></textarea><br><br>
+    <button type="submit">Enviar pedido</button>
+  </form>
 
-        <button type="submit">Enviar pedido</button>
-    </form>
+  <p id="mensaje"></p>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwsYgtRcxL8TKSDnfwlJ9FjSWIgXvAi9eyzyaoS83dnrbzzvcs3yi2cTxl4-Y_M74GCQA/exec"; // la URL del paso 2
+    const form = document.getElementById("pedidoForm");
+    const mensaje = document.getElementById("mensaje");
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data)
+      })
+      .then(response => response.text())
+      .then(text => mensaje.innerText = "✅ Pedido enviado correctamente")
+      .catch(error => mensaje.innerText = "❌ Error al enviar el pedido");
+    });
+  </script>
 </body>
 </html>
