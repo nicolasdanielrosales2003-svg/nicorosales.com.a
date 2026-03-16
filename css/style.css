@@ -1,15 +1,35 @@
-
 body {
-    background-color: #f0f0f0;
     font-family: Arial, sans-serif;
+    background-color: #fff8e1;
+    padding: 20px;
 }
 
 h1 {
-    color: darkblue;
+    color: #d2691e;
     text-align: center;
 }
 
-p {
-    color: #333;
-    font-size: 18px;
+form {
+    max-width: 400px;
+    margin: auto;
+    background: #fff3cd;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+label {
+    font-weight: bold;
+}
+
+button {
+    background-color: #d2691e;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a0522d;
 }
