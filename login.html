@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Trabajadores</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Acceso Trabajadores</h1>
+  <form id="loginForm">
+    <label>Usuario:</label><br>
+    <input type="text" name="usuario" required><br><br>
+
+    <label>Contraseña:</label><br>
+    <input type="password" name="password" required><br><br>
+
+    <button type="submit">Ingresar</button>
+  </form>
+
+  <p id="loginMensaje"></p>
+
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const loginMensaje = document.getElementById("loginMensaje");
+
+    loginForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const usuario = loginForm.usuario.value;
+      const password = loginForm.password.value;
+
+      // Ejemplo simple: credenciales fijas
+      if (usuario === "empleado" && password === "1234") {
+        window.location.href = "pedidos.html";
+      } else {
+        loginMensaje.innerText = "❌ Usuario o contraseña incorrectos";
+      }
+    });
+  </script>
+</body>
+</html>
