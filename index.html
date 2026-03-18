@@ -1,59 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Pedidos Panadería</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación | Nicolás Rosales</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f4f9; }
+        header { text-align: center; padding: 50px 0; background: #2c3e50; color: white; border-radius: 10px; }
+        .content { background: white; padding: 30px; margin-top: -20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .tags { display: flex; gap: 10px; flex-wrap: wrap; list-style: none; padding: 0; }
+        .tags li { background: #e1e8ed; padding: 5px 15px; border-radius: 20px; font-size: 0.9em; }
+    </style>
 </head>
 <body>
-  <h1>Las Meriendas De La Lili</h1>
-  <img src="img/pan.jpg" alt="Pan fresco" class="producto-img">
 
-  <form id="pedidoForm">
-    <label>Nombre:</label><br>
-    <input type="text" name="nombre" required><br><br>
+<header>
+    <h1>Nicolás Daniel Rosales</h1>
+    <p>Organización | Eficiencia | Creatividad</p>
+</header>
 
-    <label>Teléfono:</label><br>
-    <input type="tel" name="telefono" required><br><br>
+<div class="content">
+    <h2>Sobre mí</h2>
+    <p>Soy una persona puntual y dedicada, con experiencia en áreas que requieren responsabilidad y cuidado. Me gusta trabajar de manera estructurada para garantizar los mejores resultados en cada tarea que emprendo.</p>
 
-    <label>Producto:</label><br>
-    <select name="producto" required>
-      <option value="pan">Pan</option>
-      <option value="facturas">Facturas</option>
-      <option value="torta">Torta</option>
-      <option value="sandwich">Sandwiches</option>
-      <option value="pizza">Pizza</option>
-      <option value="medialunas">Medialunas</option>
-    </select><br><br>
+    <h2>Intereses y Habilidades</h2>
+    <ul class="tags">
+        <li>Mantenimiento de Paisajes</li>
+        <li>Cuidado Infantil</li>
+        <li>Diseño con IA</li>
+        <li>Inglés en Proceso</li>
+        <li>Arquitectura en Minecraft</li>
+    </ul>
 
-    <label>Cantidad:</label><br>
-    <input type="number" name="cantidad" min="1" required><br><br>
+    <h2>Contacto</h2>
+    <p>Puedes encontrarme en Villa María, Córdoba, o contactarme a través de mis proyectos de branding como <strong>Las Meriendas de la Lili</strong>.</p>
+</div>
 
-    <label>Comentarios:</label><br>
-    <textarea name="comentarios"></textarea><br><br>
-
-    <button type="submit">Enviar pedido</button>
-  </form>
-
-  <p id="mensaje"></p>
-
-  <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwsYgtRcxL8TKSDnfwlJ9FjSWIgXvAi9eyzyaoS83dnrbzzvcs3yi2cTxl4-Y_M74GCQA/exec"; // la URL del paso 2
-    const form = document.getElementById("pedidoForm");
-    const mensaje = document.getElementById("mensaje");
-
-    form.addEventListener("submit", e => {
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-
-      fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(data)
-      })
-      .then(response => response.text())
-      .then(text => mensaje.innerText = "✅ Pedido enviado correctamente")
-      .catch(error => mensaje.innerText = "❌ Error al enviar el pedido");
-    });
-  </script>
 </body>
 </html>
