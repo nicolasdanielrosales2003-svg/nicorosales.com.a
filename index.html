@@ -1,43 +1,99 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Las Meriendas De La Lili</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Emprendimiento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 2em;
+      font-weight: bold;
+    }
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+    }
+    .producto {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 250px;
+      margin: 15px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .producto img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    .precio {
+      color: #4CAF50;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .botones {
+      text-align: center;
+      margin: 30px;
+    }
+    .botones a {
+      text-decoration: none;
+      color: white;
+      background: #25D366; /* WhatsApp verde */
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .botones a.instagram {
+      background: #E1306C; /* Instagram rosa */
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Mis Productos</h1>
-    </header>
+  <header>🌟 Mi Emprendimiento 🌟</header>
 
-    <main class="contenedor-productos">
-        <div class="tarjeta">
-            <img src="imagenes/pan.png" alt="pan" class="imagen-producto">
-            <h3>Pan De Salvado</h3>
-        </p> Pan de salvado hecho a mano </p>
-            <span class="precio">$7.000</span>
-        </div>
+  <section class="productos">
+    <div class="producto">
+      <img src="https://via.placeholder.com/200" alt="Producto 1">
+      <h3>Producto 1</h3>
+      <p>Descripción breve del producto.</p>
+      <p class="precio">$1000</p>
+    </div>
 
-        <div class="tarjeta">
-            <img src="imagenes/alfajor.png" alt="Alfajores artesanales" class="imagen-producto">
-            <h3>Alfajores De Maicena</h3>
-            <p>Alfajores de maicena hecho a mano.</p>
-            <span class="precio">$12.500 la docena</span>
-        </div>
+    <div class="producto">
+      <img src="https://via.placeholder.com/200" alt="Producto 2">
+      <h3>Producto 2</h3>
+      <p>Descripción breve del producto.</p>
+      <p class="precio">$1500</p>
+    </div>
 
-        <div class="tarjeta">
-            <img src="imagenes/torta.png" alt="tortas materas" class="imagen-producto">
-            <h3>Torta Matera</h3>
-            <p>Tortias materas ideal para el mate.</p>
-            <span class="precio">$8.000</span>
-        </div>
-    </main>
+    <div class="producto">
+      <img src="https://via.placeholder.com/200" alt="Producto 3">
+      <h3>Producto 3</h3>
+      <p>Descripción breve del producto.</p>
+      <p class="precio">$2000</p>
+    </div>
+  </section>
 
-    <footer>
-        <p>Contacto: <a href="https://instagram.com/lasmeriendasdelalili">@lasmeriendasdelalili</a></p>
-    </footer>
+  <div class="botones">
+    <a href="https://wa.me/549XXXXXXXXXX" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com/tuusuario" target="_blank" class="instagram">Instagram</a>
+  </div>
 
 </body>
 </html>
-
