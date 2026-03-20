@@ -25,6 +25,25 @@
       margin-top: 10px;
       font-size: 1.2em;
     }
+
+    /* Carrusel */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+      height: 300px;
+    }
+    .carousel img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: none;
+    }
+    .carousel img.active {
+      display: block;
+    }
+
+    /* Productos */
     .productos {
       display: flex;
       flex-wrap: wrap;
@@ -55,6 +74,31 @@
       font-size: 0.95em;
       color: #555;
     }
+
+    /* Secciones */
+    section {
+      padding: 30px;
+      text-align: center;
+    }
+    section h2 {
+      margin-bottom: 15px;
+      color: #4CAF50;
+    }
+
+    /* Testimonios */
+    .testimonios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .testimonio {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Botones */
     .botones {
       text-align: center;
       margin: 40px;
@@ -72,46 +116,96 @@
     .botones a.instagram {
       background: #E1306C; /* Instagram rosa */
     }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8em; }
+      header p { font-size: 1em; }
+      .producto { width: 90%; }
+    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>🌟 Las Meriendas De La Lili 🌟</h1>
-    <p>Ofrecemos los mejores productos de calidad, caseros y deliciosos para compartir en familia. 
-       Descubre nuestros sabores únicos y disfruta de la mejor calidad y ricura que ofrecemos.</p>
+    <p>Productos artesanales con amor y dedicación. Descubre nuestros sabores únicos y disfruta de la mejor calidad.</p>
   </header>
 
-  <section class="productos">
-    <div class="producto">
-      <img src="https://via.placeholder.com/250" alt="Producto 1">
-      <h3>Budines</h3>
-      <p>Ingredientes: Harina 0000, Huevos, (Depende del sabor) fruta y chocolate por encima.</p>
-      <p class="precio">$5000</p>
-      <p class="sabores">Sabores disponibles: Chocolate, Vainilla, Frutilla</p>
-    </div>
+  <!-- Carrusel -->
+  <div class="carousel">
+    <img src="https://via.placeholder.com/1200x300?text=Promo+1" class="active" alt="Promo 1">
+    <img src="https://via.placeholder.com/1200x300?text=Promo+2" alt="Promo 2">
+    <img src="https://via.placeholder.com/1200x300?text=Promo+3" alt="Promo 3">
+  </div>
 
-    <div class="producto">
-      <img src="https://via.placeholder.com/250" alt="Producto 2">
-      <h3>Producto 2</h3>
-      <p>Descripción breve del producto.</p>
-      <p class="precio">$1500</p>
-      <p class="sabores">Sabores disponibles: Limón, Coco, Dulce de leche</p>
-    </div>
-
-    <div class="producto">
-      <img src="https://via.placeholder.com/250" alt="Producto 3">
-      <h3>Producto 3</h3>
-      <p>Descripción breve del producto.</p>
-      <p class="precio">$2000</p>
-      <p class="sabores">Sabores disponibles: Nuez, Café, Frutos rojos</p>
+  <!-- Productos -->
+  <section>
+    <h2>Productos</h2>
+    <div class="productos">
+      <div class="producto">
+        <img src="https://via.placeholder.com/250" alt="Producto 1">
+        <h3>Producto 1</h3>
+        <p>Descripción breve del producto.</p>
+        <p class="precio">$1000</p>
+        <p class="sabores">Sabores: Chocolate, Vainilla, Frutilla</p>
+      </div>
+      <div class="producto">
+        <img src="https://via.placeholder.com/250" alt="Producto 2">
+        <h3>Producto 2</h3>
+        <p>Descripción breve del producto.</p>
+        <p class="precio">$1500</p>
+        <p class="sabores">Sabores: Limón, Coco, Dulce de leche</p>
+      </div>
+      <div class="producto">
+        <img src="https://via.placeholder.com/250" alt="Producto 3">
+        <h3>Producto 3</h3>
+        <p>Descripción breve del producto.</p>
+        <p class="precio">$2000</p>
+        <p class="sabores">Sabores: Nuez, Café, Frutos rojos</p>
+      </div>
     </div>
   </section>
 
+  <!-- Sobre nosotros -->
+  <section>
+    <h2>Sobre Nosotros</h2>
+    <p>Somos un emprendimiento familiar dedicado a ofrecer productos artesanales con ingredientes frescos y mucho cariño. Nuestro objetivo es que cada cliente disfrute de calidad y sabor único.</p>
+  </section>
+
+  <!-- Testimonios -->
+  <section>
+    <h2>Testimonios</h2>
+    <div class="testimonios">
+      <div class="testimonio">⭐️⭐️⭐️⭐️⭐️ <br> “Excelente calidad y atención.”</div>
+      <div class="testimonio">⭐️⭐️⭐️⭐️ <br> “Los sabores son increíbles, recomiendo mucho.”</div>
+      <div class="testimonio">⭐️⭐️⭐️⭐️⭐️ <br> “Siempre compro aquí, nunca fallan.”</div>
+    </div>
+  </section>
+
+  <!-- Promociones -->
+  <section>
+    <h2>Promociones</h2>
+    <p>Combo especial: 3 productos por $14000</p>
+    <p>¡Aprovecha nuestras ofertas limitadas!</p>
+  </section>
+
+  <!-- Botones de contacto -->
   <div class="botones">
     <a href="https://wa.me/5493534297019" target="_blank">WhatsApp</a>
     <a href="https://instagram.com/lasmeriendasdelalili" target="_blank" class="instagram">Instagram</a>
   </div>
+
+  <script>
+    // Carrusel simple
+    let index = 0;
+    const images = document.querySelectorAll('.carousel img');
+    setInterval(() => {
+      images[index].classList.remove('active');
+      index = (index + 1) % images.length;
+      images[index].classList.add('active');
+    }, 3000);
+  </script>
 
 </body>
 </html>
