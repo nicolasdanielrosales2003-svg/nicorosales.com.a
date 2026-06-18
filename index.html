@@ -3,213 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Emprendimiento</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: #4CAF50;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    header p {
-      margin-top: 10px;
-      font-size: 1.2em;
-    }
-
-    /* Carrusel */
-    .carousel {
-      position: relative;
-      overflow: hidden;
-      max-width: 100%;
-      height: 300px;
-    }
-    .carousel img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      display: none;
-    }
-    .carousel img.active {
-      display: block;
-    }
-
-    /* Productos */
-    .productos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 20px;
-    }
-    .producto {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      width: 280px;
-      margin: 15px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .producto img {
-      max-width: 100%;
-      border-radius: 5px;
-    }
-    .precio {
-      color: #4CAF50;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    .sabores {
-      margin-top: 10px;
-      font-size: 0.95em;
-      color: #555;
-    }
-
-    /* Secciones */
-    section {
-      padding: 30px;
-      text-align: center;
-    }
-    section h2 {
-      margin-bottom: 15px;
-      color: #4CAF50;
-    }
-
-    /* Testimonios */
-    .testimonios {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .testimonio {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    /* Botones */
-    .botones {
-      text-align: center;
-      margin: 40px;
-    }
-    .botones a {
-      text-decoration: none;
-      color: white;
-      background: #25D366; /* WhatsApp verde */
-      padding: 12px 20px;
-      margin: 10px;
-      border-radius: 5px;
-      font-weight: bold;
-      display: inline-block;
-    }
-    .botones a.instagram {
-      background: #E1306C; /* Instagram rosa */
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.8em; }
-      header p { font-size: 1em; }
-      .producto { width: 90%; }
-    }
-  </style>
+  <title>Las Meriendas De La Lili</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <header>
-    <h1>🌟 Las Meriendas De La Lili 🌟</h1>
-    <p>Productos artesanales con amor y dedicación. Descubre nuestros sabores únicos y disfruta de la mejor calidad.</p>
-  </header>
+<header>
+  <h1>🌟 Las Meriendas De La Lili 🌟</h1>
+  <p>Productos artesanales con amor y dedicación.</p>
+</header>
 
-  <!-- Carrusel -->
-  <div class="carousel">
-    <img src="https://via.placeholder.com/1200x300?text=Promo+1" class="active" alt="Promo 1">
-    <img src="https://via.placeholder.com/1200x300?text=Promo+2" alt="Promo 2">
-    <img src="https://via.placeholder.com/1200x300?text=Promo+3" alt="Promo 3">
-  </div>
+<!-- Inicio de sesión -->
+<section id="loginSection">
+  <h2>Iniciar Sesión</h2>
+  <input type="text" id="username" placeholder="Usuario">
+  <input type="password" id="password" placeholder="Contraseña">
+  <button class="btn" onclick="login()">Ingresar</button>
+  <button class="btn" onclick="register()">Registrarse</button>
+  <p id="loginMessage"></p>
+</section>
 
-  <!-- Productos -->
-  <section>
-    <h2>Productos</h2>
-    <div class="productos">
-      <div class="producto">
-        <img src="https://via.placeholder.com/250" alt="Producto 1">
-        <h3>Torta Matera</h3>
-        <p>Un bizcocho clásico argentino, suave y esponjoso, ideal para acompañar el mate.</p>
-        <p class="precio">$7500</p>
-        <p class="sabores">Sabores: Marmolado, Limon, Vainilla y Naranja</p>
-      </div>
-      <div class="producto">
-        <img src="https://via.placeholder.com/250" alt="Producto 2">
-        <h3>Budin</h3>
-        <p>Un bizcocho húmedo y esponjoso, perfecto para acompañar el café, el té o el mate.</p>
-        <p class="precio">$4000</p>
-        <p class="sabores">Sabores: Marmolado, Limon, Vainilla y Naranja</p>
-      </div>
-      <div class="producto">
-        <img src="https://via.placeholder.com/250" alt="Producto 3">
-        <h3>Alfajores De Maicena</h3>
-        <p>Clásicos y suaves, rellenos con dulce de leche y cubiertos con coco rallado.</p>
-        <p class="precio">$5000 la docena / $3000 La media docena</p>
-      </div>
-      <div class="producto">
-        <img src="aca iria la imagen" alt= "producto 4">
-        <h3>Conitos De Dulce de leche</h3>
-        <p>Un clásico irresistible: suave relleno de dulce de leche cubierto con una capa de chocolate que lo hace aún más delicioso.</p>
-        <p class="precio"> 1100 Por unidad / 6000 La media docena
+<!-- Productos -->
+<section id="productosSection" style="display:none;">
+  <h2>Productos</h2>
+  <div class="productos">
+    <div class="producto">
+      <img src="https://via.placeholder.com/250" alt="Torta Matera">
+      <h3>Torta Matera</h3>
+      <p class="precio" data-precio="7500">$7500</p>
+      <button class="btn" onclick="abrirModal('Torta Matera', 7500, ['Marmolado','Limón','Vainilla','Naranja'])">Elegir sabor</button>
     </div>
-  </section>
-
-  <!-- Sobre nosotros -->
-  <section>
-    <h2>Sobre Nosotros</h2>
-    <p>Somos un emprendimiento familiar dedicado a ofrecer productos artesanales con ingredientes frescos y mucho cariño. Nuestro objetivo es que cada cliente disfrute de calidad y sabor único.</p>
-  </section>
-
-  <!-- Testimonios -->
-  <section>
-    <h2>Testimonios</h2>
-    <div class="testimonios">
-      <div class="testimonio">⭐️⭐️⭐️⭐️⭐️ <br> “Excelente calidad y atención.”</div>
-      <div class="testimonio">⭐️⭐️⭐️⭐️ <br> “Los sabores son increíbles, recomiendo mucho.”</div>
-      <div class="testimonio">⭐️⭐️⭐️⭐️⭐️ <br> “Siempre compro aquí, nunca fallan.”</div>
+    <div class="producto">
+      <img src="https://via.placeholder.com/250" alt="Budín">
+      <h3>Budín</h3>
+      <p class="precio" data-precio="4000">$4000</p>
+      <button class="btn" onclick="abrirModal('Budín', 4000, ['Marmolado','Limón','Vainilla','Naranja'])">Elegir sabor</button>
     </div>
-  </section>
-
-  <!-- Promociones -->
-  <section>
-    <h2>Promociones</h2>
-    <p>Combo especial: 3 productos por $14000</p>
-    <p>¡Aprovecha nuestras ofertas limitadas!</p>
-  </section>
-
-  <!-- Botones de contacto -->
-  <div class="botones">
-    <a href="https://wa.me/5493534297019" target="_blank">WhatsApp</a>
-    <a href="https://instagram.com/lasmeriendasdelalili" target="_blank" class="instagram">Instagram</a>
   </div>
+</section>
 
-  <script>
-    // Carrusel simple
-    let index = 0;
-    const images = document.querySelectorAll('.carousel img');
-    setInterval(() => {
-      images[index].classList.remove('active');
-      index = (index + 1) % images.length;
-      images[index].classList.add('active');
-    }, 3000);
-  </script>
+<!-- Carrito -->
+<section id="carrito" style="display:none;">
+  <h2>🛒 Carrito de Compras</h2>
+  <div id="items"></div>
+  <div class="total">Subtotal: $<span id="subtotal">0</span></div>
+  <input type="text" id="cupon" placeholder="Ingresa tu cupón">
+  <button class="btn" onclick="aplicarCupon()">Aplicar Cupón</button>
+  <div class="total">Descuento: $<span id="descuento">0</span></div>
+  <div class="total">Total: $<span id="total">0</span></div>
+  <button class="btn pagar" onclick="pagar()">Pagar</button>
+</section>
 
+<!-- Modal sabores -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="cerrarModal()">&times;</span>
+    <h3 id="modalProducto"></h3>
+    <p>Elige un sabor:</p>
+    <div id="sabores"></div>
+    <button class="btn" onclick="agregarAlCarrito()">Agregar al carrito</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
