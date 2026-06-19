@@ -26,7 +26,11 @@ function renderProducts(filteredProducts = products) {
                     ${product.flavors.map(f => `<option value="${f}">${f}</option>`).join('')}
                 </select>
                 
-                <input type="number" class="qty-input" id="qty-${product.id}" value="1" min="1">
+                <div class="quantity-control">
+                    <button onclick="changeQty(${product.id}, -1)">−</button>
+                    <input type="number" id="qty-${product.id}" value="1" min="1" readonly>
+                    <button onclick="changeQty(${product.id}, 1)">+</button>
+                </div>
                 
                 <button class="add-to-cart" onclick="addToCart(${product.id})">
                     Agregar al Carrito
@@ -37,15 +41,28 @@ function renderProducts(filteredProducts = products) {
     });
 }
 
+function changeQty(id, change) {
+    const qtyInput = document.getElementById(`qty-${id}`);
+    let qty = parseInt(qtyInput.value);
+    qty = Math.max(1, qty + change);
+    qtyInput.value = qty;
+}
+
+// Agregar al carrito
 function addToCart(id) {
     const product = products.find(p => p.id === id);
     const flavor = document.getElementById(`flavor-${id}`).value;
-    const quantity = parseInt(document.getElementById(`qty-${id}`).value) || 1;
+    const quantity = parseInt(document.getElementById(`qty-${id}`).value);
 
-    cart.push({ ...product, flavor, quantity, total: product.price * quantity });
+    cart.push({ 
+        ...product, 
+        flavor, 
+        quantity, 
+        total: product.price * quantity 
+    });
+
     updateCart();
     
-    // Feedback visual
     const icon = document.getElementById('cart-icon');
     icon.style.transform = 'scale(1.4)';
     setTimeout(() => icon.style.transform = 'scale(1)', 250);
@@ -62,15 +79,32 @@ function updateCart() {
         total += item.total;
         container.innerHTML += `
             <div class="cart-item">
-                <strong>${item.quantity} × ${item.name}</strong><br>
-                <small>${item.flavor}</small><br>
-                <span>S/ ${item.total.toFixed(2)}</span>
-                <button onclick="removeFromCart(${index})" style="float:right; color:red;">Eliminar</button>
+                <img src="${item.image}" alt="${item.name}">
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <small>${item.flavor}</small>
+                    
+                    <div class="quantity-control-cart">
+                        <button onclick="changeCartQty(${index}, -1)">−</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="changeCartQty(${index}, 1)">+</button>
+                    </div>
+                    
+                    <div class="cart-item-total">S/ ${item.total.toFixed(2)}</div>
+                </div>
+                <button class="remove-item" onclick="removeFromCart(${index})">🗑</button>
             </div>
         `;
     });
 
     document.getElementById('cart-total').textContent = `S/ ${total.toFixed(2)}`;
+}
+
+function changeCartQty(index, change) {
+    const item = cart[index];
+    item.quantity = Math.max(1, item.quantity + change);
+    item.total = item.price * item.quantity;
+    updateCart();
 }
 
 function removeFromCart(index) {
@@ -83,11 +117,14 @@ function enviarPedidoWhatsApp() {
     
     let msg = "Hola, quiero hacer este pedido:%0A%0A";
     cart.forEach(item => {
-        msg += `• ${item.quantity} x ${item.name} (${item.flavor}) - S/ ${item.total}%0A`;
+        msg += `• ${item.quantity} x ${item.name} (${item.flavor}) - S/ ${item.total.toFixed(2)}%0A`;
     });
-    msg += `%0ATotal: S/ ${cart.reduce((a, b) => a + b.total, 0).toFixed(2)}`;
+    const total = cart.reduce((a, b) => a + b.total, 0);
+    msg += `%0ATotal: S/ ${total.toFixed(2)}%0A%0A¡Gracias!`;
 
-    window.open(`https://wa.me/3534114434?text=${msg}`, '_blank'); // ← Cambia el número
+    const numeroWhatsApp = "51987654321"; // ← Cambia por tu número
+    window.open(`https://wa.me/${numeroWhatsApp}?text=${msg}`, '_blank');
+    
     cart = [];
     updateCart();
     document.getElementById('cart-sidebar').classList.remove('open');
@@ -97,14 +134,12 @@ function enviarPedidoWhatsApp() {
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
 
-    // Búsqueda
     document.getElementById('search').addEventListener('input', (e) => {
         const term = e.target.value.toLowerCase();
         const filtered = products.filter(p => p.name.toLowerCase().includes(term));
         renderProducts(filtered);
     });
 
-    // Carrito
     document.getElementById('cart-icon').addEventListener('click', () => {
         document.getElementById('cart-sidebar').classList.toggle('open');
     });
