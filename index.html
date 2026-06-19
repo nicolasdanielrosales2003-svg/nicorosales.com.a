@@ -1,62 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Las Meriendas De La Lili</title>
-  <link rel="stylesheet" href="css/style.css">
-<script src="js/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Meriendas De La Lili</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Delicias Caseras • Hecho con Amor</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="cart-icon" id="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+        </nav>
+    </header>
 
-<header>
-  <h1>🌟 Las Meriendas De La Lili 🌟</h1>
-  <p>Productos artesanales con amor y dedicación.</p>
-</header>
-  
-<!-- Productos -->
-<section id="productosSection">
-  <h2>Productos</h2>
-  <div class="productos">
-    <div class="producto">
-      <img src="https://via.placeholder.com/250" alt="Torta Matera">
-      <h3>Torta Matera</h3>
-      <p class="precio" data-precio="7500">$7500</p>
-      <button class="btn" onclick="abrirModal('Torta Matera', 7500, ['Marmolado','Limón','Vainilla','Naranja'])">Elegir sabor</button>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>Productos Caseros con Sabor a Hogar</h2>
+            <p>Endulza tu día con nuestras delicias preparadas con ingredientes naturales y mucho cariño.</p>
+            <a href="#productos" class="btn-primary">Ver Productos</a>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos" class="products-section">
+        <h2 class="section-title">Nuestros Productos</h2>
+        <div class="products-grid" id="products-grid">
+            <!-- Los productos se generan con JavaScript -->
+        </div>
+    </section>
+
+    <!-- CARRITO -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart" id="close-cart">✕</button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-total">
+            <p>Total: <strong id="cart-total">S/ 0.00</strong></p>
+        </div>
+        <button class="btn-whatsapp" onclick="enviarPedidoWhatsApp()">
+            <i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp
+        </button>
     </div>
-    <div class="producto">
-      <img src="https://via.placeholder.com/250" alt="Budín">
-      <h3>Budín</h3>
-      <p class="precio" data-precio="4000">$4000</p>
-      <button class="btn" onclick="abrirModal('Budín', 4000, ['Marmolado','Limón','Vainilla','Naranja'])">Elegir sabor</button>
-    </div>
-  </div>
-</section>
 
-<!-- Carrito -->
-<section id="carrito" style="display:none;">
-  <h2>🛒 Carrito de Compras</h2>
-  <div id="items"></div>
-  <div class="total">Subtotal: $<span id="subtotal">0</span></div>
-  <input type="text" id="cupon" placeholder="Ingresa tu cupón">
-  <button class="btn" onclick="aplicarCupon()">Aplicar Cupón</button>
-  <div class="total">Descuento: $<span id="descuento">0</span></div>
-  <div class="total">Total: $<span id="total">0</span></div>
-  <button class="btn pagar" onclick="pagar()">Pagar</button>
-</section>
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Delicias Caseras - Hecho con ❤️ en casa</p>
+    </footer>
 
-<!-- Modal sabores -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close" onclick="cerrarModal()">&times;</span>
-    <h3 id="modalProducto"></h3>
-    <p>Elige un sabor:</p>
-    <div id="sabores"></div>
-    <button class="btn" onclick="agregarAlCarrito()">Agregar al carrito</button>
-  </div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
