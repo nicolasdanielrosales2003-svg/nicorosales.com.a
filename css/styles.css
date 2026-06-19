@@ -147,3 +147,147 @@ body {
     font-size: 1.2rem;
     cursor: pointer;
 }
+/* ==================== MEJORAS DE CANTIDAD ==================== */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0;
+    width: 100%;
+}
+
+.quantity-control button {
+    width: 36px;
+    height: 36px;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quantity-control button:hover {
+    background: #f0f0f0;
+}
+
+.quantity-control input {
+    width: 60px;
+    text-align: center;
+    font-size: 1.1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+/* ==================== MEJORAS DEL CARRITO ==================== */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 420px;
+    height: 100vh;
+    background: white;
+    box-shadow: -15px 0 40px rgba(0,0,0,0.25);
+    transition: right 0.4s ease;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.open { right: 0; }
+
+.cart-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #5c3317;
+    color: white;
+}
+
+.cart-items {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    gap: 12px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h4 {
+    margin-bottom: 4px;
+    font-size: 1.05rem;
+}
+
+.cart-item-info small {
+    color: #666;
+}
+
+.cart-item-total {
+    font-weight: bold;
+    color: #2a9d8f;
+    margin-top: 8px;
+}
+
+.quantity-control-cart {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.quantity-control-cart button {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+}
+
+.remove-item {
+    color: #e76f51;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.cart-total {
+    padding: 1.5rem;
+    background: #f8f8f8;
+    border-top: 2px solid #eee;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.btn-whatsapp {
+    margin: 15px;
+    padding: 18px;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
