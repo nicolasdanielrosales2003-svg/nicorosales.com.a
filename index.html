@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Las Meriendas De La Lili</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Delicias Caseras • Hecho con Amor</title>
+    <link rel="stylesheet" href="css/style.css">
+<script src="js/script.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -12,17 +13,15 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <h1>Delicias Caseras • Hecho con Amor</h1>
+                <h1>Las Meriendas De La Lili</h1>
             </div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#productos">Productos</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
             </ul>
             <div class="cart-icon" id="cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" id="cart-count">0</span>
+                🛒 <span class="cart-count" id="cart-count">0</span>
             </div>
         </nav>
     </header>
@@ -30,24 +29,25 @@
     <!-- HERO -->
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h2>Productos Caseros con Sabor a Hogar</h2>
-            <p>Endulza tu día con nuestras delicias preparadas con ingredientes naturales y mucho cariño.</p>
-            <a href="#productos" class="btn-primary">Ver Productos</a>
+            <h2>Delicias Caseras con Sabor a Hogar</h2>
+            <p>Endulza tu día con productos preparados con ingredientes naturales y mucho cariño ❤️</p>
+            <a href="#productos" class="btn-primary">Ver Nuestros Productos</a>
         </div>
     </section>
 
     <!-- PRODUCTOS -->
     <section id="productos" class="products-section">
         <h2 class="section-title">Nuestros Productos</h2>
-        <div class="products-grid" id="products-grid">
-            <!-- Los productos se generan con JavaScript -->
+        <div class="filters">
+            <input type="text" id="search" placeholder="Buscar productos..." class="search-input">
         </div>
+        <div class="products-grid" id="products-grid"></div>
     </section>
 
     <!-- CARRITO -->
     <div class="cart-sidebar" id="cart-sidebar">
         <div class="cart-header">
-            <h3>Tu Carrito</h3>
+            <h3>🛒 Tu Carrito</h3>
             <button class="close-cart" id="close-cart">✕</button>
         </div>
         <div class="cart-items" id="cart-items"></div>
@@ -59,11 +59,14 @@
         </button>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 Delicias Caseras - Hecho con ❤️ en casa</p>
-    </footer>
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="about">
+        <h2>Sobre Nosotros</h2>
+        <p>Pequeña empresa familiar dedicada a preparar las mejores delicias caseras desde 2023.</p>
+    </section>
 
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2026 Delicias Caseras - Todos los derechos reservados</p>
+    </footer>
 </body>
 </html>
