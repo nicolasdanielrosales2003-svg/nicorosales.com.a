@@ -1,33 +1,6 @@
 let carrito = [];
 let productoSeleccionado = {};
 
-// --- Inicio de sesión ---
-function login() {
-  const user = document.getElementById('username').value;
-  const pass = document.getElementById('password').value;
-  const storedPass = localStorage.getItem(user);
-
-  if (storedPass && storedPass === pass) {
-    document.getElementById('loginMessage').innerText = "Bienvenido " + user;
-    document.getElementById('loginSection').style.display = "none";
-    document.getElementById('productosSection').style.display = "block";
-    document.getElementById('carrito').style.display = "block";
-  } else {
-    document.getElementById('loginMessage').innerText = "Usuario o contraseña incorrectos";
-  }
-}
-
-function register() {
-  const user = document.getElementById('username').value;
-  const pass = document.getElementById('password').value;
-  if (user && pass) {
-    localStorage.setItem(user, pass);
-    document.getElementById('loginMessage').innerText = "Usuario registrado correctamente";
-  } else {
-    document.getElementById('loginMessage').innerText = "Completa todos los campos";
-  }
-}
-
 // --- Modal sabores ---
 function abrirModal(nombre, precio, sabores) {
   productoSeleccionado = { nombre, precio };
